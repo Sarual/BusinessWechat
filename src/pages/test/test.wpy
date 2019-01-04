@@ -1,0 +1,48 @@
+<template>
+  <div>
+    <TitleBar :titleText.sync="titleText" :isBackBtn.sync="isBackBtn" :barBackBtn.sync="barBackBtn"></TitleBar>
+    <Placeholder :show.sync="show" :noneDataPic.sync="noneDataPic" message="暂无发现数据"></Placeholder>
+  </div>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import base from '../../mixins/base'
+  import TitleBar from '../../components/TitleBar'
+  import Placeholder from '../../components/Placeholder'
+  export default class Test extends wepy.page {
+    mixins = [base]
+    config = {}
+    data = {
+      titleText: '',
+      isBackBtn: true,
+      barBackBtn: '../../assets/images/home/back.png',
+      noneDataPic: '../../assets/images/another/more.png',
+      show: true
+    }
+    components = {
+      TitleBar,
+      Placeholder
+    }
+    methods = {}
+    onLoad() {
+      this.titleText = '我的测试'
+      wx.showToast({
+        title: '我是原声Toast',
+        icon: 'success',
+        duration: 2000
+      })
+      // wx.showLoading({
+      //   title: '加载中'
+      // })
+      // setTimeout(function () {
+      //   wx.hideLoading()
+      // }, 2000)
+    }
+    onShow() {}
+  }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+  @import "../../assets/stylesheets/layout.scss";
+</style>

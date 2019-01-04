@@ -1,0 +1,89 @@
+<template>
+  <view class="swiper-tab">
+    <view wx:for="{{tabList}}" wx:key="index" class="swiper-tab-list {{currentTab==index ? 'active' : ''}}" data-current="{{index}}" bindtap="swichNav">
+      <image src="{{currentTab==index ? item.pathActive : item.path}}" class="tabImg {{currentTab==index ? 'active' : ''}}"></image>
+      {{item.name? item.name:item}}
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class TabBar extends wepy.component {
+    props = {
+      currentTab: {
+        default: 0
+      },
+      tabList: {
+        type: Object
+      }
+    }
+    methods = {
+      swichNav(e) {
+        let that = this
+        if (that.data.currentTab === e.target.dataset.current) {
+          return false
+        } else {
+          that.currentTab = e.target.dataset.current
+          that.$apply()
+        }
+        that.$emit('currentTab', that.currentTab)
+      },
+      changeList(dotList) {
+        this.tabList = dotList
+      }
+    }
+    onLoad() {}
+    watch = {
+      currentTab(newValue, oldValue) {
+        // console.log(`${oldValue} -> ${newValue}`)
+      }
+    }
+  }
+</script>
+
+<style lang="less">
+  .tabImg {
+    height: 50rpx;
+    width: 50rpx;
+    margin-top: 10rpx;
+    z-index: 1;
+  }
+  .swiper-tab {
+    width: 100%;
+    border-bottom: 1rpx solid #eee;
+    text-align: center;
+    line-height: 60rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: #fff;
+  }
+  .swiper-tab-list {
+    flex: 1;
+    font-size: 30rpx;
+    color: #777777;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+  }
+  .active {
+    color: #eb6623;
+  }
+  .swiper-box {
+    display: block;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .swiper-item-box {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+</style>

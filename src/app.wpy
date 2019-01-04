@@ -1,0 +1,128 @@
+<script>
+  import wepy from 'wepy'
+  import 'wepy-async-function'
+  import {
+    service
+  } from '../src/assets/interface/interface.js'
+  export default class extends wepy.app {
+    config = {
+      pages: [
+        'pages/busineMainPage',
+        'pages/extendMainPage',
+        'pages/test/test',
+        'pages/login'
+      ],
+      window: {
+        backgroundTextStyle: 'light',
+        navigationBarBackgroundColor: '#fff',
+        navigationBarTextStyle: 'black',
+        navigationBarTitleText: 'tabBar', // 配置底部导航
+        onReachBottom: true,
+        navigationStyle: 'custom'
+      },
+      'permission': {
+        'scope.userLocation': {
+          desc: '你的位置信息将用于小程序位置接口的效果展示'
+        }
+      }
+    }
+    globalData = {
+      pathUrl: null,
+      isLogin: true,
+      accessToken: ''
+    }
+    constructor() {
+      super()
+      // 修复小程序请求并发问题
+      this.use('requestfix')
+    }
+    onLaunch(options) {
+      // console.log('app页面onLaunch函数this:', this)
+      // console.log('app页面onLaunch函数options:', options)
+      // console.log('isFormal:', service.isFormal)
+      let that = this
+      let pathUrl = this.urlToString(options.path, options.query)
+      // console.log(pathUrl)
+      this.globalData.pathUrl = pathUrl
+      this.globalData.accessToken = wepy.getStorageSync(service.isFormal ? 'accessToken' : 'accessTokenInfo') || false
+      if (this.globalData.isLogin) {
+        // 如果登陆
+        this.globalData.isLogin = false
+        wepy.checkSession({
+          success: res => {
+            // console.log('checkSession:', res)
+            // debugger
+            if (!this.globalData.accessToken) {
+              that.loginToken()
+            }
+          },
+          fail: res => {
+            that.loginToken()
+          }
+        })
+      }
+    }
+    onShow() {
+      wepy.showShareMenu({
+        withShareTicket: true
+      })
+    }
+    onShareAppMessage() {
+      return {
+        title: 'AA连锁酒店',
+        desc: 'A&A连锁酒店是新时代互联网连锁品牌，由专业化的连锁酒店运营团队为合作酒店提供多项支持。',
+        path: 'pages/home'
+      }
+    }
+    urlToString(path, query) {
+      return path + '?id=' + query.id
+    }
+    loginToken() {
+      wepy.login({
+        success: res => {
+          if (res.code) {
+            // 登陆拦截
+            wepy.request({
+              url: service.login,
+              method: 'POST',
+              data: {
+                code: res.code
+              },
+              success: function(res) {
+                // 判断环境，正式环境和测试环境存储用户的key变量不同，加以区分。
+                if (service.isFormal) {
+                  wepy.setStorage({
+                    key: 'accessToken',
+                    data: res.data.access_token
+                  })
+                  wepy.setStorage({
+                    key: 'userId',
+                    data: res.data.id
+                  })
+                } else {
+                  wepy.setStorage({
+                    key: 'accessTokenInfo',
+                    data: res.data.access_token
+                  })
+                  wepy.setStorage({
+                    key: 'userIdInfo',
+                    data: res.data.id
+                  })
+                }
+                let url = this.globalData.pathUrl.slice(6, this.globalData.pathUrl.length)
+                console.log('url:', url)
+                wepy.reLaunch({
+                  url: url
+                })
+              }
+            })
+          }
+        }
+      })
+    }
+  }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+  @import "./assets/stylesheets/layout.scss";
+</style>

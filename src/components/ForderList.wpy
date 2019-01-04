@@ -1,0 +1,32 @@
+<template>
+  <view class="ForderList">
+    <label class="titleH1">订单</label>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import base from '../mixins/base'
+  export default class ForderList extends wepy.component {
+    mixins = [base]
+    config = {
+    }
+    data = {
+    }
+    components = {
+    }
+    methods = {}
+    onLoad() {}
+    onShow() {
+    }
+  }
+</script>
+<style lang="scss" rel="stylesheet/scss" scoped>
+  .ForderList {
+    padding: 0 32rpx;
+    background: #fff;
+    overflow: hidden;
+    label, text, image {
+      display: block;
+    }
+  }
+</style>

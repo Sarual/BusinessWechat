@@ -1,0 +1,48 @@
+{
+	"description": "A WePY project",
+	"setting": {
+		"urlCheck": true,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"appid": "wx0ec07aac61329592",
+	"projectname": "AA%E5%95%86%E5%AE%B6%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"miniprogramRoot": "./dist",
+	"libVersion": "2.2.0",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "busineMainPage",
+					"pathName": "pages/busineMainPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "extendMainPage",
+					"pathName": "pages/extendMainPage"
+				}
+			]
+		}
+	}
+}

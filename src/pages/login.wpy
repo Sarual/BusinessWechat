@@ -1,0 +1,184 @@
+<template>
+  <div>
+    <TitleBar :titleText.sync="titleText" :isBackBtn.sync="isBackBtn"></TitleBar>
+    <form bindsubmit="formSubmit">
+      <view class="section">
+        <view class="section_title">手机号</view>
+        <input name="phone" type="number" bindinput="phoneInput" placeholder="手机号/卡号" maxlength="11" focus="true" />
+      </view>
+      <view class="section">
+        <view class="section_title">密码</view>
+        <input name="password" type="number" bindinput="phoneInput" placeholder="密码：4-20位数字、字母、字符" minlength="4" maxlength="20" focus="true" />
+      </view>
+      <!-- 手机验证码（后期加） -->
+      <!-- <view class="section">
+          <view class="section_title">验证码</view>
+          <input class="code" name="code" type="number" placeholder="请输入验证码" />
+          <view class="btn send_code">
+            <text wx:if="{{sendMsgDisabled}}">{{time+'秒后获取'}}</text>
+            <text @tap="sendCode" wx:else="{{sendMsgDisabled}}">发送验证码</text>
+          </view>
+        </view> -->
+      <view class="btn_comfire">
+        <button class="button type_blue" formType="submit">完成</button>
+      </view>
+    </form>
+  </div>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import http from '../mixins/base'
+  import base from '../mixins/http'
+  import service from '../assets/interface/interface.js'
+  import tip from '../assets/utils/tip'
+  import TitleBar from '../components/TitleBar'
+  export default class Login extends wepy.page {
+    mixins = [base, http]
+    config = {
+      navigationBarTitleText: '绑定手机'
+    }
+    components = {
+      TitleBar
+    }
+    data = {
+      titleText: '',
+      isBackBtn: true,
+      phone: '',
+      sendMsgDisabled: false,
+      time: 60
+    }
+    // sendVerifyCode() {
+    //   var that = this
+    //   that.$post({
+    //     url: service.uploadWechatUserinfo,
+    //     data: {
+    //       phone: that.phone
+    //     }
+    //   }, {
+    //     success: ({
+    //       statusCode,
+    //       data
+    //     }) => {
+    //       // that.isLoading = false
+    //       if (statusCode === 200) {
+    //         tip.success('验证成功')
+    //         that.$apply()
+    //       } else {
+    //         // 收不到验证码/验证失败/验证码不正确
+    //       }
+    //     }
+    //   })
+    // }
+    registerUser(phone, password) {
+      let that = this
+      const query = {
+        mobile: phone,
+        password: password
+      }
+      that.$post({
+        url: service.uploadWechatUserinfo,
+        data: query
+      }, {
+        success: ({
+          statusCode,
+          data
+        }) => {
+          if (statusCode === 200) {
+            // 根据不同类型跳转不同的页面
+            wepy.switchTab({
+              url: '/pages/runState'
+            })
+            that.$apply()
+          } else {
+            // 绑定失败
+            tip.alert('密码输入错误')
+          }
+        }
+      })
+      // that.showLoading = false
+    }
+    onLoad() {
+      this.titleText = '绑定手机'
+    }
+    computed = {}
+    methods = {
+      phoneInput(e) {
+        this.phone = e.detail.value
+      },
+      // sendCode(e) {
+      //   if (this.phone === '') {
+      //     tip.alert('输入手机号码')
+      //     return false
+      //   }
+      //   this.sendVerifyCode()
+      //   var that = this
+      //   that.sendMsgDisabled = true
+      //   var interval = setInterval(() => {
+      //     if (that.time-- <= 0) {
+      //       that.time = 10
+      //       that.sendMsgDisabled = false
+      //       clearInterval(interval)
+      //       that.$apply()
+      //     }
+      //     that.$apply()
+      //   }, 1000)
+      // },
+      formSubmit(e) {
+        console.log('去登陆')
+        let that = this
+        let phone = e.detail.value.phone
+        let password = e.detail.value.password
+        if (phone === '') {
+          tip.alert('请输入手机号码')
+          return false
+        }
+        if (password === '') {
+          tip.alert('请输入密码')
+          return false
+        }
+        that.registerUser(phone, password)
+        console.log('提交数据为:', e.detail.value)
+      }
+    }
+  }
+</script>
+
+<style lang="less">
+  .section {
+    display: flex;
+    align-items: center;
+    padding: 20rpx 30rpx;
+    border-bottom: 1px solid #dbdbdb;
+    background: #fff;
+    .section_title {
+      color: #1a1a1a;
+      width: 150rpx;
+    }
+    .btn {
+      padding: 15rpx 10rpx;
+      border: 1px solid #000000;
+      -moz-border-radius: 5rpx;
+      /* Firefox */
+      -webkit-border-radius: 5rpx;
+      /* Safari 和 Chrome */
+      border-radius: 5rpx;
+      /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+      color: #000000;
+    }
+    .send_code {
+      margin-left: 20rpx;
+    }
+  }
+  .btn_comfire {
+    margin-top: 64rpx;
+    padding: 0 24rpx;
+  }
+  .code {
+    width: 300rpx;
+  }
+  .type_blue {
+    margin: 0 80rpx;
+    background-color: #B0E2FF;
+  }
+</style>
