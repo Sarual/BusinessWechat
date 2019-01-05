@@ -1,6 +1,6 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName"></TitleBar>
-  <TabBarBottom @currentTab.user="getCurrentTab" :currentTab.sync="currentTab" :tabList.sync="tabList" :tabImgPathList.sync="tabImgPathList"></TabBarBottom>
+  <!-- <TabBarBottom @currentTab.user="getCurrentTab" :currentTab.sync="currentTab" :tabList.sync="tabList" :tabImgPathList.sync="tabImgPathList"></TabBarBottom> -->
   <view class="text">
     <view wx:if="{{currentTab==0}}">
       <Shome></Shome>
@@ -12,6 +12,7 @@
       <SpersonalCenter></SpersonalCenter>
     </view>
   </view>
+  <TabBarBottom2></TabBarBottom2>
 </template>
 
 <script>
@@ -19,6 +20,7 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom from '../components/TabBarBottom'
+  import TabBarBottom2 from '../components/TabBarBottom2'
   import Shome from '../components/Shome'
   import Spromotion from '../components/Spromotion'
   import SpersonalCenter from '../components/SpersonalCenter'
@@ -50,7 +52,8 @@
       TabBarBottom,
       Shome,
       Spromotion,
-      SpersonalCenter
+      SpersonalCenter,
+      TabBarBottom2
     }
     methods = {
       getCurrentTab(cur, evt) {

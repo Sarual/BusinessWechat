@@ -4,9 +4,14 @@
   import {
     service
   } from '../src/assets/interface/interface.js'
+  import { setStore } from 'wepy-redux'
+  import configStore from './store'
+  const store = configStore()
+  setStore(store)
   export default class extends wepy.app {
     config = {
       pages: [
+        'pages/canvasShare',
         'pages/busineMainPage',
         'pages/extendMainPage',
         'pages/test/test',

@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -40,7 +40,13 @@
 				{
 					"id": -1,
 					"name": "extendMainPage",
-					"pathName": "pages/extendMainPage"
+					"pathName": "pages/extendMainPage",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "extendMainPage",
+					"pathName": "pages/canvasShare"
 				}
 			]
 		}

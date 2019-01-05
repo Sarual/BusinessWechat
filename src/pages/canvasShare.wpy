@@ -1,0 +1,79 @@
+<template>
+  <TitleBar :isBackBtn.sync="isBackBtn" :titleText.sync="titleText"></TitleBar>
+  <view class="canvasShare">
+    <canvas canvas-id="wxChartCanvas" class="canvas" disable-scroll="true"></canvas>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+// import { service } from '../config.js'
+import http from '../mixins/http'
+import base from '../mixins/base'
+import TitleBar from '../components/TitleBar'
+var WxCharts = require('../untils/wxcharts.js')
+
+export default class CanvasShare extends wepy.page {
+  mixins = [http, base]
+  data = {
+    titleText: '生成分享',
+    isBackBtn: true,
+    isShare: false,
+    createCharts: false
+  }
+  components = {
+    TitleBar
+  }
+  methods = {
+  }
+  onLoad(options) {
+    let windowWidth = 0
+    try {
+      let res = wx.getSystemInfoSync()
+      windowWidth = res.windowWidth
+    } catch (e) {
+      // do something when get system info failed
+    }
+    this.createCharts = new WxCharts({
+      canvasId: 'wxChartCanvas',
+      type: 'radar',
+      categories: ['攻击力', '防御力', '敏捷', '法术攻击', '法术防御', '运气'],
+      series: [{
+        name: '成交量1',
+        data: [90, 110, 125, 95, 87, 122]
+      }],
+      width: windowWidth,
+      height: windowWidth / 2 + 100,
+      // title: {
+      //   name: '2344',
+      //   color: '#fff'
+      // },
+      extra: {
+        radar: {
+          max: 150,
+          labelColor: '#fff',
+          gridColor: '#63CAFC',
+          fontSize: 15,
+          color: '#fff'
+        }
+      },
+      title: {
+        name: '123',
+        color: '#fff'
+      }
+    })
+  }
+  onShow() {
+  }
+}
+</script>
+<style lang="scss" rel="stylesheet/scss" scoped>
+@import '../assets/stylesheets/layout.scss';
+.canvasShare {
+  height: 100%;
+  .canvas {
+    width: 100%;
+    height: 100%;
+
+  }
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName"></TitleBar>
-  <TabBarBottom @currentTab.user="getCurrentTab" :currentTab.sync="currentTab" :tabList.sync="tabList" :tabImgPathList.sync="tabImgPathList"></TabBarBottom>
+  <!-- <TabBarBottom @currentTab.user="getCurrentTab" :currentTab.sync="currentTab" :tabList.sync="tabList" :tabImgPathList.sync="tabImgPathList"></TabBarBottom> -->
   <view class="text">
     <view wx:if="{{currentTab==0}}">
       <FrunState></FrunState>
@@ -15,6 +15,7 @@
       <FshareMember></FshareMember>
     </view>
   </view>
+  <TabBarBottom2></TabBarBottom2>
 </template>
 
 <script>
@@ -22,10 +23,16 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom from '../components/TabBarBottom'
+  import TabBarBottom2 from '../components/TabBarBottom2'
   import FrunState from '../components/FrunState'
   import FroomState from '../components/FroomState'
   import ForderList from '../components/ForderList'
   import FshareMember from '../components/FshareMember'
+  import { getStore, connect } from 'wepy-redux'
+  const store = getStore()
+  @connect({
+    userInfoCacheData: state => state.cache.userInfoCacheData
+  })
   export default class BusineMainPage extends wepy.page {
     mixins = [base]
     config = {}
@@ -60,7 +67,8 @@
       FrunState,
       FroomState,
       ForderList,
-      FshareMember
+      FshareMember,
+      TabBarBottom2
     }
     methods = {
       getCurrentTab(cur, evt) {
@@ -81,6 +89,9 @@
     onLoad(options) {
       console.log(options)
       this.titleText = 'AA商家端'
+      let userInfo = this.userInfoCacheData
+      userInfo.role = 'business'
+      store.dispatch({ type: 'CACHE_USER_INFO_DATA', payload: userInfo })
     }
     onShow() {}
   }
