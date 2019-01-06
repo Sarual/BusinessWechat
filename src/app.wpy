@@ -1,9 +1,7 @@
 <script>
   import wepy from 'wepy'
   import 'wepy-async-function'
-  import {
-    service
-  } from '../src/assets/interface/interface.js'
+  import { service } from '../src/assets/interface/interface.js'
   import { setStore } from 'wepy-redux'
   import configStore from './store'
   const store = configStore()
@@ -11,10 +9,15 @@
   export default class extends wepy.app {
     config = {
       pages: [
-        'pages/canvasShare',
-        'pages/busineMainPage',
-        'pages/extendMainPage',
+        'pages/AroomState',
+        'pages/AorderList',
+        'pages/AshareMember',
+        'pages/ArunState',
+        'pages/Bhome',
+        'pages/Bpromotion',
+        'pages/BpersonalCenter',
         'pages/test/test',
+        'pages/canvasShare',
         'pages/login'
       ],
       window: {

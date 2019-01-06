@@ -10,7 +10,7 @@ import wepy from 'wepy'
 import http from '../mixins/http'
 import base from '../mixins/base'
 import TitleBar from '../components/TitleBar'
-var WxCharts = require('../untils/wxcharts.js')
+var WxCharts = require('../assets/utils/wxcharts.js')
 
 export default class CanvasShare extends wepy.page {
   mixins = [http, base]

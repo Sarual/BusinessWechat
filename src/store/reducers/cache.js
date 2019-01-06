@@ -18,73 +18,66 @@ export default handleActions({
   userInfoCacheData: {
     userName: 'hahah',
     role: 'user'
+    // role: 'business'
   },
   tabBarBottomCacheData: {
     user: [
       {
         index: 0,
-        name: '用户',
+        name: '推广首页',
         img: '../assets/images/tabBarBottom/tabBom0.png',
         bar: '../assets/images/tabBarBottom/tabBom0_bar.png',
-        routerLink: 'busineMainPage',
+        routerLink: 'Bhome',
         isSelected: true
       },
       {
         index: 1,
-        name: '选择2',
+        name: '推广',
         img: '../assets/images/tabBarBottom/tabBom1.png',
         bar: '../assets/images/tabBarBottom/tabBom1_bar.png',
-        routerLink: 'extendMainPage',
+        routerLink: 'Bpromotion',
         isSelected: false
       },
       {
         index: 2,
-        name: '选择3',
+        name: '我的',
         img: '../assets/images/tabBarBottom/tabBom2.png',
         bar: '../assets/images/tabBarBottom/tabBom2_bar.png',
-        routerLink: 'busineMainPage',
-        isSelected: false
-      },
-      {
-        index: 3,
-        name: '选择4',
-        img: '../assets/images/tabBarBottom/tabBom3.png',
-        bar: '../assets/images/tabBarBottom/tabBom3_bar.png',
-        routerLink: 'extendMainPage',
+        routerLink: 'BpersonalCenter',
         isSelected: false
       }
     ],
     business: [
       {
         index: 0,
-        name: '商家1',
+        name: '经营情况',
         img: '../assets/images/tabBarBottom/tabBom0.png',
         bar: '../assets/images/tabBarBottom/tabBom0_bar.png',
-        routerLink: 'busineMainPage',
+        routerLink: 'ArunState',
         isSelected: true
       },
       {
         index: 1,
-        name: '选择2',
+        name: '房态',
         img: '../assets/images/tabBarBottom/tabBom1.png',
         bar: '../assets/images/tabBarBottom/tabBom1_bar.png',
-        routerLink: 'extendMainPage',
+        routerLink: 'AroomState',
         isSelected: false
       },
       {
         index: 2,
-        name: '选择3',
+        name: '订单',
         img: '../assets/images/tabBarBottom/tabBom2.png',
         bar: '../assets/images/tabBarBottom/tabBom2_bar.png',
-        routerLink: 'busineMainPage',
+        routerLink: 'AorderList',
         isSelected: false
       },
       {
         index: 3,
-        name: '选择4',
+        name: '共享会员',
         img: '../assets/images/tabBarBottom/tabBom3.png',
         bar: '../assets/images/tabBarBottom/tabBom3_bar.png',
-        routerLink: 'extendMainPage',
+        routerLink: 'AshareMember',
         isSelected: false
       }
     ]

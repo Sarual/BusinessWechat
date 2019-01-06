@@ -2,10 +2,11 @@
 	"description": "A WePY project",
 	"setting": {
 		"urlCheck": true,
-		"es6": false,
-		"postcss": false,
-		"minified": false,
-		"newFeature": true
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
 	"appid": "wx0ec07aac61329592",
@@ -29,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 7,
 			"list": [
 				{
 					"id": -1,
@@ -46,7 +47,37 @@
 				{
 					"id": -1,
 					"name": "extendMainPage",
-					"pathName": "pages/canvasShare"
+					"pathName": "pages/canvasShare",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "extendMainPage",
+					"pathName": "pages/canvasShare",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ArunState",
+					"pathName": "pages/ArunState",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ArunState",
+					"pathName": "pages/Bhome",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Bhome",
+					"pathName": "pages/Bhome",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Bpromotion",
+					"pathName": "pages/Bpromotion"
 				}
 			]
 		}

@@ -1,0 +1,41 @@
+<template>
+  <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName">
+  </TitleBar>
+  <view>经营状况</view>
+  <TabBarBottom2></TabBarBottom2>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import base from '../mixins/base'
+  import TitleBar from '../components/TitleBar'
+  import TabBarBottom2 from '../components/TabBarBottom2'
+  // import {
+  //   getStore,
+  //   connect
+  // } from 'wepy-redux'
+  // const store = getStore()
+  // @connect({
+  //   userInfoCacheData: state => state.cache.userInfoCacheData
+  // })
+  export default class ArunState extends wepy.page {
+    mixins = [base]
+    config = {}
+    data = {
+      titleText: ''
+    }
+    components = {
+      TitleBar,
+      TabBarBottom2
+    }
+    methods = {}
+    onLoad(options) {}
+    onShow() {
+      this.titleText = 'AA商家'
+    }
+  }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+
+</style>
