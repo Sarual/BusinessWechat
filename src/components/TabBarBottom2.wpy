@@ -1,9 +1,7 @@
 <template>
   <view class="swiper-tab">
     <view wx:for="{{tabBarBottomCacheData[userInfoCacheData.role]}}" wx:key="index" class="swiper-tab-list {{item.isSelected ? 'active' : ''}}" bindtap="swichNav({{index}})">
-      <!-- <image src="{{item.isSelected ? item.img : item.bar}}" class="tabImg"></image> -->
-      <image src="{{ item.isSelected ? '../assets/images/tabBarBottom/tabBom' + item.index + '.png' : '../assets/images/tabBarBottom/tabBom' + item.index + '_bar.png' }}" class="tabImg"></image>
-      {{item.name}}
+      <image src="{{item.isSelected ? item.img : item.bar}}" class="tabImg"></image>    {{item.name}}
     </view>
   </view>
 </template>

@@ -29,9 +29,11 @@
       TabBarBottom2
     }
     methods = {}
-    onLoad(options) {}
-    onShow() {
+    onLoad(options) {
       this.titleText = '经营状况'
+    }
+    onShow() {
+      // this.titleText = '经营状况'
     }
   }
 </script>

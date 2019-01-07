@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 11,
 			"list": [
 				{
 					"id": -1,
@@ -83,6 +83,24 @@
 				{
 					"id": -1,
 					"name": "ArunState00000000000000",
+					"pathName": "pages/ArunState",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "AorderList",
+					"pathName": "pages/AorderList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "AroomState",
+					"pathName": "pages/AroomState",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ArunState",
 					"pathName": "pages/ArunState"
 				}
 			]

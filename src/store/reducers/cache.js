@@ -51,32 +51,32 @@ export default handleActions({
       {
         index: 0,
         name: '经营情况',
-        // img: '../assets/images/tabBarBottom/tabBom0.png',
-        // bar: '../assets/images/tabBarBottom/tabBom0_bar.png',
+        img: '../assets/images/tabBarBottom/tabBom0.png',
+        bar: '../assets/images/tabBarBottom/tabBom0_bar.png',
         routerLink: 'ArunState',
         isSelected: true
       },
       {
         index: 1,
         name: '房态',
-        // img: '../assets/images/tabBarBottom/tabBom1.png',
-        // bar: '../assets/images/tabBarBottom/tabBom1_bar.png',
+        img: '../assets/images/tabBarBottom/tabBom1.png',
+        bar: '../assets/images/tabBarBottom/tabBom1_bar.png',
         routerLink: 'AroomState',
         isSelected: false
       },
       {
         index: 2,
         name: '订单',
-        // img: '../assets/images/tabBarBottom/tabBom2.png',
-        // bar: '../assets/images/tabBarBottom/tabBom2_bar.png',
+        img: '../assets/images/tabBarBottom/tabBom2.png',
+        bar: '../assets/images/tabBarBottom/tabBom2_bar.png',
         routerLink: 'AorderList',
         isSelected: false
       },
       {
         index: 3,
         name: '共享会员',
-        // img: '../assets/images/tabBarBottom/tabBom3.png',
-        // bar: '../assets/images/tabBarBottom/tabBom3_bar.png',
+        img: '../assets/images/tabBarBottom/tabBom3.png',
+        bar: '../assets/images/tabBarBottom/tabBom3_bar.png',
         routerLink: 'AshareMember',
         isSelected: false
       }
