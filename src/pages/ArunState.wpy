@@ -31,7 +31,7 @@
     methods = {}
     onLoad(options) {}
     onShow() {
-      this.titleText = 'AA商家'
+      this.titleText = '经营状况'
     }
   }
 </script>
