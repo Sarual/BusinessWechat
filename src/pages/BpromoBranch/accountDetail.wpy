@@ -1,0 +1,114 @@
+<template>
+  <TitleBar :titleText.sync="titleText" :isBackBtn.sync="isBackBtn">
+  </TitleBar>
+  <!-- 判断此推广员是否有结算记录 -->
+  <view class="noRecordList" wx:if="{{isHasRecordList}}">
+    <Placeholder :show.sync="show" :src.sync="src" :message.sync="message"></Placeholder>
+    <view class="addAccount" @tap="addAccount">添加结算账号</view>
+  </view>
+  <view class="recordListCon" wx:if="{{!isHasRecordList}}">
+    <view class="waitPay pub1">
+      <view class="title pub2">
+        <text>代结算佣金</text><text>256</text>
+      </view>
+      <view class="detailCon">
+        <view class="list pub2">
+          <text>2019-01</text><text>128</text>
+        </view>
+        <view class="list pub2">
+          <text>2019-01</text><text>128</text>
+        </view>
+      </view>
+    </view>
+    <view class="hasPay pub1">
+      <view class="title pub2">
+        <text>代结算佣金</text><text>256</text>
+      </view>
+      <view class="detailCon">
+        <view class="list pub2">
+          <text>2019-01</text><text>128</text>
+        </view>
+        <view class="list pub2">
+          <text>2019-01</text><text>128</text>
+        </view>
+        <view class="list pub2">
+          <text>2019-01</text><text>128</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import base from '../../mixins/base'
+  import TitleBar from '../../components/TitleBar'
+  import Placeholder from '../../components/Placeholder'
+  export default class AorderList extends wepy.page {
+    mixins = [base]
+    config = {}
+    data = {
+      titleText: '',
+      isBackBtn: true,
+      src: '../../assets/images/another/icon_card@2x.png',
+      message: '没有结算记录',
+      show: true,
+      isHasRecordList: true
+    }
+    components = {
+      TitleBar,
+      Placeholder
+    }
+    methods = {
+      addAccount() {
+        console.log('addAccount')
+      }
+    }
+    onLoad(options) {}
+    onShow() {
+      this.titleText = '结算明细'
+    }
+  }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+  .noRecordList {
+    width: 100%;
+    .addAccount {
+      height: 80rpx;
+      width: 60%;
+      line-height: 80rpx;
+      text-align: center;
+      font-size: 30rpx;
+      margin: 100rpx auto;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10rpx;
+    }
+  }
+  .recordListCon {
+    margin-top: 30rpx;
+    font-size: 30rpx;
+    .pub1 {
+      .pub2 {
+        padding: 0 30rpx;
+        display: flex;
+        justify-content: space-between;
+      }
+      .title {
+        height: 80rpx;
+        line-height: 80rpx;
+      }
+      .detailCon {
+        .list {
+          background-color: #fff;
+          height: 100rpx;
+          line-height: 100rpx;
+          &:nth-child(even) {
+            margin-top: 6rpx;
+          }
+        }
+      }
+    }
+  }
+</style>

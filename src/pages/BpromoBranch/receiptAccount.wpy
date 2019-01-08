@@ -1,0 +1,86 @@
+<template>
+  <TitleBar :titleText.sync="titleText" :isBackBtn.sync="isBackBtn">
+  </TitleBar>
+  <view class="receiptAccount">
+    <view class="optContainer">
+      <view class="accountItem">
+        <text>开行户</text><text>></text>
+      </view>
+      <view class="accountItem">
+        <text>开户名</text><text>></text>
+      </view>
+      <view class="accountItem none">
+        <text>银行账户</text><text>></text>
+      </view>
+    </view>
+    <view class="state">
+      请确保收款信息正确以免影响佣金结算
+    </view>
+    <view class="confirm" @tap="confirm">添加结算账号</view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import base from '../../mixins/base'
+  import TitleBar from '../../components/TitleBar'
+  export default class AorderList extends wepy.page {
+    mixins = [base]
+    config = {}
+    data = {
+      titleText: '',
+      isBackBtn: true
+    }
+    components = {
+      TitleBar
+    }
+    methods = {
+      confirm() {
+        console.log('confirm')
+      }
+    }
+    onLoad(options) {}
+    onShow() {
+      this.titleText = '收款账号'
+    }
+  }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+  .receiptAccount {
+    width: 100%;
+    .optContainer {
+      margin-top: 30rpx;
+      .accountItem {
+        padding: 0 32rpx;
+        display: flex;
+        justify-content: space-between;
+        height: 80rpx;
+        line-height: 80rpx;
+        background-color: #fff;
+        border-bottom: 1px solid #cccccc;
+      }
+      .none {
+        border-bottom: none;
+      }
+    }
+    .state {
+      padding: 0 32rpx;
+      color: #bbbbbb;
+      font-size: 28rpx;
+      height: 80rpx;
+      line-height: 80rpx;
+    }
+    .confirm {
+      height: 80rpx;
+      width: 70%;
+      line-height: 80rpx;
+      text-align: center;
+      font-size: 30rpx;
+      margin: 100rpx auto;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10rpx;
+    }
+  }
+</style>

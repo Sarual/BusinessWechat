@@ -1,7 +1,228 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName">
   </TitleBar>
-  <view>推广首页</view>
+  <view class="home-page">
+    <div class="optTime">
+      <view>AA北京三里屯分店</view>
+      <view>2018-12</view>
+    </div>
+    <view class="sumSale">
+      <view class="top">
+        <view>累计收益</view>
+        <view>
+          <text class="num">¥124</text>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="percent">
+          <text>今日收益</text>
+          <text>9</text>
+        </view>
+        <view class="percent">
+          <text>本月代结算</text>
+          <text>0</text>
+        </view>
+        <view class="percent">
+          <text>未结算总收益</text>
+          <text>253</text>
+        </view>
+      </view>
+    </view>
+    <!-- 判断此推广员是否有佣金 -->
+    <Placeholder :show.sync="show" :src.sync="src" :message.sync="message"></Placeholder>
+    <view class="proContainer" wx:if="{{showProCon}}">
+      <view class="proList">
+        <view class="time">
+          12-24
+        </view>
+        <view class="proDetail">
+          <view class="detailList">
+            <view class="detailCon">
+              <view class="directDetail pub1">
+                <view>
+                  <text>直接推广收益</text>
+                  <text>+4.5</text>
+                </view>
+                <view>
+                  <text>订单金额：180</text>
+                  <text>点击收取</text>
+                </view>
+                <view>
+                  <text>2018-12-22 13:30:08</text>
+                  <text class="showDetailText">详情</text>
+                </view>
+              </view>
+              <view class="moreDetail pub1" wx:if="{{showProList}}">
+                <view>
+                  <text>用户名</text>
+                  <text>小明</text>
+                </view>
+                <view>
+                  <text>订单金额</text>
+                  <text>180</text>
+                </view>
+                <view>
+                  <text>订单号</text>
+                  <text>下单时间</text>
+                </view>
+                <view>
+                  <text>入住酒店</text>
+                  <text>A&A连锁酒店（嘉定州桥老店）</text>
+                </view>
+                <view>
+                  <text>推广员</text>
+                  <text>A&A三里屯分店推广员毛毛</text>
+                </view>
+                <view>
+                  <text>返佣比例</text>
+                  <text>2.5%</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="detailList">
+            <view class="detailCon">
+              <view class="directDetail pub1">
+                <view>
+                  <text>直接推广收益</text>
+                  <text>+4.5</text>
+                </view>
+                <view>
+                  <text>订单金额：180</text>
+                  <text>点击收取</text>
+                </view>
+                <view>
+                  <text>2018-12-22 13:30:08</text>
+                  <text class="showDetailText">详情</text>
+                </view>
+              </view>
+              <view class="moreDetail pub1" wx:if="{{showProList}}">
+                <view>
+                  <text>用户名</text>
+                  <text>小明</text>
+                </view>
+                <view>
+                  <text>订单金额</text>
+                  <text>180</text>
+                </view>
+                <view>
+                  <text>订单号</text>
+                  <text>下单时间</text>
+                </view>
+                <view>
+                  <text>入住酒店</text>
+                  <text>A&A连锁酒店（嘉定州桥老店）</text>
+                </view>
+                <view>
+                  <text>推广员</text>
+                  <text>A&A三里屯分店推广员毛毛</text>
+                </view>
+                <view>
+                  <text>返佣比例</text>
+                  <text>2.5%</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="proList">
+        <view class="time">
+          12-24
+        </view>
+        <view class="proDetail">
+          <view class="detailList">
+            <view class="detailCon">
+              <view class="directDetail pub1">
+                <view>
+                  <text>直接推广收益</text>
+                  <text>+4.5</text>
+                </view>
+                <view>
+                  <text>订单金额：180</text>
+                  <text>点击收取</text>
+                </view>
+                <view>
+                  <text>2018-12-22 13:30:08</text>
+                  <text class="showDetailText">详情</text>
+                </view>
+              </view>
+              <view class="moreDetail pub1" wx:if="{{showProList}}">
+                <view>
+                  <text>用户名</text>
+                  <text>小明</text>
+                </view>
+                <view>
+                  <text>订单金额</text>
+                  <text>180</text>
+                </view>
+                <view>
+                  <text>订单号</text>
+                  <text>下单时间</text>
+                </view>
+                <view>
+                  <text>入住酒店</text>
+                  <text>A&A连锁酒店（嘉定州桥老店）</text>
+                </view>
+                <view>
+                  <text>推广员</text>
+                  <text>A&A三里屯分店推广员毛毛</text>
+                </view>
+                <view>
+                  <text>返佣比例</text>
+                  <text>2.5%</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="detailList">
+            <view class="detailCon">
+              <view class="directDetail pub1">
+                <view>
+                  <text>直接推广收益</text>
+                  <text>+4.5</text>
+                </view>
+                <view>
+                  <text>订单金额：180</text>
+                  <text>点击收取</text>
+                </view>
+                <view>
+                  <text>2018-12-22 13:30:08</text>
+                  <text class="showDetailText">详情</text>
+                </view>
+              </view>
+              <view class="moreDetail pub1" wx:if="{{showProList}}">
+                <view>
+                  <text>用户名</text>
+                  <text>小明</text>
+                </view>
+                <view>
+                  <text>订单金额</text>
+                  <text>180</text>
+                </view>
+                <view>
+                  <text>订单号</text>
+                  <text>下单时间</text>
+                </view>
+                <view>
+                  <text>入住酒店</text>
+                  <text>A&A连锁酒店（嘉定州桥老店）</text>
+                </view>
+                <view>
+                  <text>推广员</text>
+                  <text>A&A三里屯分店推广员毛毛</text>
+                </view>
+                <view>
+                  <text>返佣比例</text>
+                  <text>2.5%</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
   <TabBarBottom2></TabBarBottom2>
 </template>
 
@@ -10,32 +231,110 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom2 from '../components/TabBarBottom2'
-  // import {
-  //   getStore,
-  //   connect
-  // } from 'wepy-redux'
-  // const store = getStore()
-  // @connect({
-  //   userInfoCacheData: state => state.cache.userInfoCacheData
-  // })
+  import Placeholder from '../components/Placeholder'
   export default class Bhome extends wepy.page {
     mixins = [base]
     config = {}
     data = {
-      titleText: ''
+      titleText: '',
+      src: '../assets/images/another/icon_card@2x.png',
+      message: '您还没有返佣记录，加油',
+      // show: true
+      show: false,
+      showProCon: true,
+      showProList: false
     }
     components = {
       TitleBar,
-      TabBarBottom2
+      TabBarBottom2,
+      Placeholder
     }
     methods = {}
     onLoad(options) {
-      this.titleText = 'AA商家'
+      this.titleText = '推广首页'
     }
     onShow() {}
   }
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
+  .home-page {
+    width: 100%;
+    .optTime {
+      margin-top: 20rpx;
+      line-height: 3;
+      font-size: 30rpx;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30rpx;
+      background-color: #fff;
+    }
+    .sumSale {
+      margin: 20rpx 0;
+      background-color: #fff;
+      .top {
+        line-height: 2;
+        height: 160rpx;
+        text-align: center;
+        font-size: 32rpx;
+        color: #333333;
+        .num {
+          font-size: 50rpx;
+          color: red;
+        }
+      }
+      .bottom {
+        border-top: 1px solid #ccc;
+        display: flex;
+        .percent {
+          flex: 1;
+          font-size: 30rpx;
+          color: #333333;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          line-height: 1.8;
+          padding: 10rpx 0;
+        }
+      }
+    }
+    .proContainer {
+      .proList {
+        padding: 0 20rpx;
+        .time {
+          font-size: 32rpx;
+          line-height: 2;
+        }
+        .proDetail {
+          .detailList {
+            margin-bottom: 10rpx;
+            .detailCon {
+              font-size: 32rpx;
+              background-color: #fff;
+              padding-bottom: 10rpx;
+              .pub1 {
+                padding: 0 10rpx;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                view {
+                  display: flex;
+                  justify-content: space-between;
+                }
+              }
+              .directDetail {
+                .showDetailText {
+                  color: skyblue;
+                }
+              }
+              .moreDetail {
+                margin: 0 10rpx;
+                background-color: #ccc;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 </style>

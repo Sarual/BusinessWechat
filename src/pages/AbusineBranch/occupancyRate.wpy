@@ -1,0 +1,183 @@
+<template>
+  <TitleBar :titleText.sync="titleText" :isBackBtn.sync="isBackBtn">
+  </TitleBar>
+  <view class="occRate-page">
+    <view class="sumSale">
+      <view class="top">
+        <view>累计售出</view>
+        <view>
+          <text class="num">1085 </text><text> 间</text>
+        </view>
+      </view>
+      <view class="bottom">
+        <view class="percent">
+          <text>日均入住率</text>
+          <text>68%</text>
+        </view>
+        <view class="percent">
+          <text>日均房价/间夜</text>
+          <text>188元</text>
+        </view>
+        <view class="percent">
+          <text>日均售房数</text>
+          <text>17.8</text>
+        </view>
+      </view>
+    </view>
+    <view class="orderListCon">
+      <view class="optType">
+        <view class="opt left"><text>月份</text></view>
+        <view class="opt right"><text>日期</text></view>
+      </view>
+      <view class="orderDetail">
+        <view class="time">
+          2018年12月29日
+        </view>
+        <view class="saleNum">
+          <div class="left">今日营业额：4028元</div>
+          <div class="right">今日平均房价：178元</div>
+        </view>
+        <view class="detailCon">
+          <view class="thead tpub">
+            <text>房型</text><text>房间号</text><text>房价</text><text>入住状态</text>
+          </view>
+          <view class="tbody">
+            <view class="tpub tCon">
+              <text>大床房</text><text>201</text><text>188</text><text>已入住</text>
+            </view>
+            <view class="tpub">
+              <text>大床房</text><text>201</text><text>188</text><text>已入住</text>
+            </view>
+            <view class="tpub tCon">
+              <text>大床房</text><text>201</text><text>188</text><text>已入住</text>
+            </view>
+            <view class="tpub">
+              <text>大床房</text><text>201</text><text>188</text><text>已入住</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import base from '../../mixins/base'
+  import TitleBar from '../../components/TitleBar'
+  export default class AorderList extends wepy.page {
+    mixins = [base]
+    config = {}
+    data = {
+      titleText: '',
+      isBackBtn: true
+    }
+    components = {
+      TitleBar
+    }
+    methods = {}
+    onLoad(options) {}
+    onShow() {
+      this.titleText = '入住率'
+    }
+  }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+  .occRate-page {
+    width: 100%;
+    .sumSale {
+      margin: 20rpx 0;
+      background-color: #fff;
+      .top {
+        line-height: 2;
+        height: 160rpx;
+        text-align: center;
+        font-size: 32rpx;
+        color: #333333;
+        .num {
+          font-size: 50rpx;
+          color: red;
+        }
+      }
+      .bottom {
+        border-top: 1px solid #ccc;
+        display: flex;
+        .percent {
+          flex: 1;
+          font-size: 30rpx;
+          color: #333333;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          line-height: 1.8;
+          padding: 10rpx 0;
+          &:nth-of-type(1) {
+            border-right: 1px solid #ccc;
+          }
+          &:nth-of-type(2) {
+            border-right: 1px solid #ccc;
+          }
+        }
+      }
+    }
+    .orderListCon {
+      background-color: #fff;
+      .optType {
+        line-height: 3;
+        display: flex;
+        flex-direction: row;
+        .opt {
+          flex: 1;
+          padding: 0 20rpx;
+        }
+        .left {}
+        .right {}
+      }
+      .orderDetail {
+        .time {
+          font-size: 32rpx;
+          color: #666666;
+          padding: 0 20rpx;
+        }
+        .saleNum {
+          font-size: 28rpx;
+          color: #555555;
+          line-height: 2;
+          padding: 0 20rpx;
+          display: flex;
+          justify-content: space-between;
+        }
+        .detailCon {
+          .tpub {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            text {
+              flex: 1;
+            }
+          }
+          .thead {
+            background-color: #aaaaaa;
+            font-size: 32rpx;
+            color: #fff;
+          }
+          .tbody {
+            font-size: 30rpx;
+            view {
+              &:nth-child(2n) {
+                background-color: #fff;
+              }
+              &:nth-child(2n + 1) {
+                background-color: #dddddd
+              }
+            }
+            .tCon {
+              line-height: 2;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

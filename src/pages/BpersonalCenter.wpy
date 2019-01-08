@@ -1,7 +1,34 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName">
   </TitleBar>
-  <view>我的我的我的</view>
+  <view class="personalCenter">
+    <view class="infoList">
+      <view class="phone pub1">
+        <view>
+          <text>手机号</text>
+        </view>
+        <view>
+          <text>12789983223</text>
+        </view>
+      </view>
+      <view class="addAccount pub1">
+        <view>
+          <text>添加收款账号</text>
+        </view>
+        <view>
+          <text>></text>
+        </view>
+      </view>
+      <view class="record pub1">
+        <view>
+          <text>结算记录</text>
+        </view>
+        <view>
+          <text @tap="toAccountDetail">></text>
+        </view>
+      </view>
+    </view>
+  </view>
   <TabBarBottom2></TabBarBottom2>
 </template>
 
@@ -10,14 +37,6 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom2 from '../components/TabBarBottom2'
-  // import {
-  //   getStore,
-  //   connect
-  // } from 'wepy-redux'
-  // const store = getStore()
-  // @connect({
-  //   userInfoCacheData: state => state.cache.userInfoCacheData
-  // })
   export default class BpersonalCenter extends wepy.page {
     mixins = [base]
     config = {}
@@ -28,7 +47,11 @@
       TitleBar,
       TabBarBottom2
     }
-    methods = {}
+    methods = {
+      toAccountDetail() {
+        console.log('toAccountDetail')
+      }
+    }
     onLoad(options) {
       this.titleText = '个人中心'
     }
@@ -36,6 +59,26 @@
   }
 </script>
 
-<style lang="scss" rel="stylesheet/scss" scoped>
-
+<style lang="scss" scoped>
+  .personalCenter {
+    width: 100%;
+    .infoList {
+      font-size: 30rpx;
+      margin-top: 10rpx;
+      .pub1 {
+        padding: 0 20rpx;
+        height: 100rpx;
+        line-height: 100rpx;
+        background-color: #fff;
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+      }
+      .phone {}
+      .addAccount {}
+      .record {
+        border-bottom: none;
+      }
+    }
+  }
 </style>

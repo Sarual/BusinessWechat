@@ -1,0 +1,31 @@
+<template>
+  <TitleBar :titleText.sync="titleText" :isBackBtn.sync="isBackBtn">
+  </TitleBar>
+  <view>今日平均房价</view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import base from '../../mixins/base'
+  import TitleBar from '../../components/TitleBar'
+  export default class AorderList extends wepy.page {
+    mixins = [base]
+    config = {}
+    data = {
+      titleText: '',
+      isBackBtn: true
+    }
+    components = {
+      TitleBar
+    }
+    methods = {}
+    onLoad(options) {}
+    onShow() {
+      this.titleText = '今日平均房价'
+    }
+  }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+
+</style>

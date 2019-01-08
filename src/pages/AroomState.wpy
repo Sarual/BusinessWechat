@@ -1,7 +1,87 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName">
   </TitleBar>
-  <view>房间状况</view>
+  <view class="roomState-page">
+    <view class="optRoom">
+      <view class="opt left"><text>房态</text></view>
+      <view class="opt right"><text>房型</text></view>
+    </view>
+    <view class="floor firstFloor">
+      <view class="layer">一层</view>
+      <view class="roomList">
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+      </view>
+    </view>
+    <view class="floor secondFloor">
+      <view class="layer">二层</view>
+      <view class="roomList">
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+      </view>
+    </view>
+    <view class="floor thirdFloor">
+      <view class="layer">三层</view>
+      <view class="roomList">
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+        <view class="roomDetail">
+          <text>101</text>
+          <text>商务大床房</text>
+          <text>空闲</text>
+        </view>
+      </view>
+    </view>
+  </view>
   <TabBarBottom2></TabBarBottom2>
 </template>
 
@@ -10,11 +90,6 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom2 from '../components/TabBarBottom2'
-  // import { getStore, connect } from 'wepy-redux'
-  // const store = getStore()
-  // @connect({
-  //   userInfoCacheData: state => state.cache.userInfoCacheData
-  // })
   export default class AroomState extends wepy.page {
     mixins = [base]
     config = {}
@@ -34,5 +109,41 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
+  .roomState-page {
+    width: 100%;
+    .optRoom {
+      line-height: 3;
+      display: flex;
+      flex-direction: row;
+      .opt {
+        flex: 1;
+        padding: 0 20rpx;
+      }
+      .left {}
+      .right {}
+    }
+    .floor {
+      font-size: 0;
+      margin: 0 0 20rpx 20rpx;
+      .layer {
+        font-size: 36rpx;
+        color: #333333;
+        line-height: 3;
+      }
+      .roomList {
+        display: flex;
+        font-size: 26rpx;
+        .roomDetail {
+          height: 120rpx;
+          width: 25%;
+          margin-right: 20rpx;
+          border: 1px solid #333333;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text {}
+        }
+      }
+    }
+  }
 </style>

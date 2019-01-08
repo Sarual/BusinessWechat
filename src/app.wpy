@@ -9,13 +9,20 @@
   export default class extends wepy.app {
     config = {
       pages: [
+        'pages/ArunState',
         'pages/AroomState',
         'pages/AorderList',
         'pages/AshareMember',
-        'pages/ArunState',
+        'pages/AbusineBranch/occupancyRate',
+        'pages/AbusineBranch/lastTurnOver',
+        'pages/AbusineBranch/todayRoomRate',
+        'pages/AbusineBranch/lastRoomRate',
         'pages/Bhome',
         'pages/Bpromotion',
         'pages/BpersonalCenter',
+        'pages/BpromoBranch/accountDetail',
+        'pages/BpromoBranch/receiptAccount',
+        'pages/BpromoBranch/promoPost',
         'pages/test/test',
         'pages/canvasShare',
         'pages/login'

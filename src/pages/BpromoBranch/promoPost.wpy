@@ -1,0 +1,103 @@
+<template>
+  <TitleBar :titleText.sync="titleText" :isBackBtn.sync="isBackBtn">
+  </TitleBar>
+  <view class="promoPoster">
+    <view class="container">
+      <view class="title">
+        您的专属推广图片已生成
+      </view>
+      <view class="posterCon">
+        <view class="text">
+          邀请您使用AA小程序预定房间，房费大减免！
+        </view>
+        <view class="id"><text>ID:782733</text></view>
+      </view>
+      <view class="addId">
+        ✅ 添加个人ID
+      </view>
+      <view class="posterType">
+        <view>A海报</view>
+        <view>B海报</view>
+        <view>C海报</view>
+      </view>
+      <view class="confirm savePic">
+        保存图片
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import base from '../../mixins/base'
+  import TitleBar from '../../components/TitleBar'
+  export default class AorderList extends wepy.page {
+    mixins = [base]
+    config = {}
+    data = {
+      titleText: '',
+      isBackBtn: true
+    }
+    components = {
+      TitleBar
+    }
+    methods = {}
+    onLoad(options) {}
+    onShow() {
+      this.titleText = '推广海报'
+    }
+  }
+</script>
+
+<style lang="scss" rel="stylesheet/scss" scoped>
+  .promoPoster {
+    width: 100%;
+    .container {
+      margin-top: 30rpx;
+      padding: 0 100rpx;
+      font-size: 30rpx;
+      .title {
+        line-height: 2.5;
+        text-align: center;
+      }
+      .posterCon {
+        border: 1px solid #ccc;
+        .text {
+          margin: 50rpx 10%;
+        }
+        .id {
+          margin-top: 300rpx;
+          padding: 30rpx 20rpx;
+        }
+      }
+      .addId {
+        height: 80rpx;
+        line-height: 80rpx;
+        text-align: center;
+      }
+      .posterType {
+        margin-top: 20rpx;
+        display: flex;
+        justify-content: space-around;
+        view{
+          height: 100rpx;
+          width: 120rpx;
+          text-align: center;
+          line-height: 100rpx;
+          border: 1px solid #ccc;
+        }
+      }
+      .confirm {
+        height: 80rpx;
+        width: 70%;
+        line-height: 80rpx;
+        text-align: center;
+        font-size: 30rpx;
+        margin: 100rpx auto;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10rpx;
+      }
+    }
+  }
+</style>

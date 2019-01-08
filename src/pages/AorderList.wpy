@@ -1,7 +1,114 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName">
   </TitleBar>
-  <view>订单</view>
+  <view class="orderList-Page">
+    <view class="optType">
+      <view class="opt left"><text>日期</text></view>
+      <view class="opt right"><text>订单类型</text></view>
+    </view>
+    <view class="orderContainer">
+      <view class="title">今日订单</view>
+      <view class="orderDetail">
+        <view class="top">
+          <text>2018-12-29 至 2018-12-30</text><text>待确认</text>
+        </view>
+        <view class="bottom">
+          <view class="detailList">
+            <text>房间号：202</text><text>待确认</text>
+          </view>
+          <view class="detailList">
+            <text>状 态：可入住</text><text></text>
+          </view>
+          <view class="detailList">
+            <text>房 型：商区大床房</text><text class="active">客人已支付</text>
+          </view>
+        </view>
+      </view>
+      <view class="orderDetail">
+        <view class="top">
+          <text>2018-12-29 至 2018-12-30</text><text>待确认</text>
+        </view>
+        <view class="bottom">
+          <view class="detailList">
+            <text>房间号：202</text><text>待确认</text>
+          </view>
+          <view class="detailList">
+            <text>状 态：可入住</text><text></text>
+          </view>
+          <view class="detailList">
+            <text>房 型：商区大床房</text><text class="active">客人已支付</text>
+          </view>
+        </view>
+      </view>
+      <view class="orderDetail">
+        <view class="top">
+          <text>2018-12-29 至 2018-12-30</text><text>待确认</text>
+        </view>
+        <view class="bottom">
+          <view class="detailList">
+            <text>房间号：202</text><text>待确认</text>
+          </view>
+          <view class="detailList">
+            <text>状 态：可入住</text><text></text>
+          </view>
+          <view class="detailList">
+            <text>房 型：商区大床房</text><text class="active">客人已支付</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="orderContainer">
+      <view class="title">2018年12月28日</view>
+      <view class="orderDetail">
+        <view class="top">
+          <text>2018-12-29 至 2018-12-30</text><text>待确认</text>
+        </view>
+        <view class="bottom">
+          <view class="detailList">
+            <text>房间号：202</text><text>待确认</text>
+          </view>
+          <view class="detailList">
+            <text>状 态：可入住</text><text></text>
+          </view>
+          <view class="detailList">
+            <text>房 型：商区大床房</text><text class="active">客人已支付</text>
+          </view>
+        </view>
+      </view>
+      <view class="orderDetail">
+        <view class="top">
+          <text>2018-12-29 至 2018-12-30</text><text>待确认</text>
+        </view>
+        <view class="bottom">
+          <view class="detailList">
+            <text>房间号：202</text><text>待确认</text>
+          </view>
+          <view class="detailList">
+            <text>状 态：可入住</text><text></text>
+          </view>
+          <view class="detailList">
+            <text>房 型：商区大床房</text><text class="active">客人已支付</text>
+          </view>
+        </view>
+      </view>
+      <view class="orderDetail">
+        <view class="top">
+          <text>2018-12-29 至 2018-12-30</text><text>待确认</text>
+        </view>
+        <view class="bottom">
+          <view class="detailList">
+            <text>房间号：202</text><text>待确认</text>
+          </view>
+          <view class="detailList">
+            <text>状 态：可入住</text><text></text>
+          </view>
+          <view class="detailList">
+            <text>房 型：商区大床房</text><text class="active">客人已支付</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
   <TabBarBottom2></TabBarBottom2>
 </template>
 
@@ -10,11 +117,6 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom2 from '../components/TabBarBottom2'
-  // import { getStore, connect } from 'wepy-redux'
-  // const store = getStore()
-  // @connect({
-  //   userInfoCacheData: state => state.cache.userInfoCacheData
-  // })
   export default class AorderList extends wepy.page {
     mixins = [base]
     config = {}
@@ -34,5 +136,56 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
+  .orderList-Page {
+    width: 100%;
+    .optType {
+      line-height: 3;
+      display: flex;
+      flex-direction: row;
+      .opt {
+        flex: 1;
+        padding: 0 20rpx;
+      }
+      .left {}
+      .right {}
+    }
+    .orderContainer {
+      margin: 0 20rpx;
+      .title {
+        font-size: 30rpx;
+        color:#333333;
+        line-height: 2;
+      }
+      .orderDetail {
+        margin-bottom: 30rpx;
+        font-size: 30rpx;
+        color: #666666;
+        border: 1px solid #ccc;
+        .top {
+          padding: 0 20rpx;
+          height: 60rpx;
+          line-height: 60rpx;
+          border-bottom: 1px solid #ccc;
+          display: flex;
+          justify-content: space-between;
+          text {
+            &:nth-of-type(2) {
+              color: red;
+            }
+          }
+        }
+        .bottom {
+          margin: 20rpx 0;
+          padding: 0 20rpx;
+          .detailList {
+            display: flex;
+            justify-content: space-between;
+            .active{
+              color: green;
+            }
+          }
+        }
+      }
+    }
+  }
 </style>

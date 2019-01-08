@@ -17,8 +17,8 @@ export default handleActions({
 }, {
   userInfoCacheData: {
     userName: 'hahah',
-    // role: 'user'
-    role: 'business'
+    role: 'user'
+    // role: 'business'
   },
   tabBarBottomCacheData: {
     user: [

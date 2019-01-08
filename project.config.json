@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 11,
+			"current": 22,
 			"list": [
 				{
 					"id": -1,
@@ -101,7 +101,73 @@
 				{
 					"id": -1,
 					"name": "ArunState",
-					"pathName": "pages/ArunState"
+					"pathName": "pages/ArunState",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ArunState111",
+					"pathName": "pages/ArunState",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "AroomState1111111",
+					"pathName": "pages/AroomState",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "AorderList1111",
+					"pathName": "pages/AorderList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "occupancyRate",
+					"pathName": "pages/AbusineBranch/occupancyRate",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Bhome222",
+					"pathName": "pages/Bhome",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Bpromotion222",
+					"pathName": "pages/Bpromotion",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "BpersonalCenter2222",
+					"pathName": "pages/BpersonalCenter",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "BpersonalCenter2222",
+					"pathName": "pages/Bpromotion",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "BpersonalCenter2222",
+					"pathName": "pages/BpromoBranch/accountDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "receiptAccount22222",
+					"pathName": "pages/BpromoBranch/receiptAccount",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "promoPost2222",
+					"pathName": "pages/BpromoBranch/promoPost"
 				}
 			]
 		}

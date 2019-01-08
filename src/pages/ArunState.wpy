@@ -1,7 +1,42 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName">
   </TitleBar>
-  <view>经营状况</view>
+  <view class="runState-page">
+    <view class="optTime" @tap="optTime">
+      2018年12月29日111
+    </view>
+    <view class="sumMoney">
+      <view>本月累计营业额</view>
+      <view>38804元</view>
+      <view>共售出218间</view>
+    </view>
+    <view class="runType">
+      <view class="typeCon">
+        <view class="left">
+          <view class="pub1">今日入住率</view>
+          <view class="pub2" @tap="goDetail(0)">78%</view>
+        </view>
+        <view class="right">
+          <view class="pub1">昨日营业额</view>
+          <view class="pub2" @tap="goDetail(1)">4272元</view>
+        </view>
+      </view>
+      <view class="typeCon sec">
+        <view class="left">
+          <view class="pub1">今日平均房价</view>
+          <view class="pub2" @tap="goDetail(2)">178元</view>
+        </view>
+        <view class="right">
+          <view class="pub1">昨日平均房价</view>
+          <view class="pub2" @tap="goDetail(3)">152元</view>
+        </view>
+      </view>
+    </view>
+    <view class="priceChart">
+      <view class="text"><text>房价动态</text></view>
+      <view class="chart"></view>
+    </view>
+  </view>
   <TabBarBottom2></TabBarBottom2>
 </template>
 
@@ -10,14 +45,6 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom2 from '../components/TabBarBottom2'
-  // import {
-  //   getStore,
-  //   connect
-  // } from 'wepy-redux'
-  // const store = getStore()
-  // @connect({
-  //   userInfoCacheData: state => state.cache.userInfoCacheData
-  // })
   export default class ArunState extends wepy.page {
     mixins = [base]
     config = {}
@@ -28,16 +55,128 @@
       TitleBar,
       TabBarBottom2
     }
-    methods = {}
+    methods = {
+      optTime() {
+        console.log('选择时间')
+      },
+      goDetail(num) {
+        switch (num) {
+          case '0':
+            this.$goto('AbusineBranch/occupancyRate')
+            break
+          case '1':
+            this.$goto('AbusineBranch/lastTurnOver')
+            break
+          case '2':
+            this.$goto('AbusineBranch/todayRoomRate')
+            break
+          case '3':
+            this.$goto('AbusineBranch/lastRoomRate')
+            break
+          default:
+            return false
+        }
+      }
+    }
     onLoad(options) {
       this.titleText = '经营状况'
     }
-    onShow() {
-      // this.titleText = '经营状况'
-    }
+    onShow() {}
   }
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
+  .runState-page {
+    width: 100%;
+    font-size: 28rpx;
+    color: #333333;
+    .optTime {
+      padding: 0 20rpx;
+      width: 100%;
+      line-height: 2;
+      background-color: #ccc;
+    }
+    .sumMoney {
+      background-color: #eee;
+      view {
+        padding: 0 20rpx;
+        &:nth-of-type(1) {
+          line-height: 3;
+        }
+        &:nth-of-type(2) {
+          line-height: 2;
+          font-size: 40rpx;
+          text-align: center
+        }
+        &:nth-of-type(3) {
+          padding-bottom: 30rpx;
+          text-align: center
+        }
+      }
+    }
+    .runType {
+      font-size: 0;
+      background-color: #fff;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      .typeCon {
+        padding: 0 20rpx;
+        height: 160rpx;
+        font-size: 30rpx;
+        display: flex;
+        flex-direction: row;
+        .left {
+          flex: 1;
+          border-right: 1px solid #ccc;
+        }
+        .right {
+          flex: 1;
+          margin-left: 20rpx;
+        }
+      }
+      .pub1 {
+        line-height: 3;
+      }
+      .pub2 {
+        text-align: center;
+        position: relative;
+        &:before {
+          content: '>';
+          height: 40rpx;
+          width: 40rpx;
+          display: block;
+          position: absolute;
+          right: 20rpx;
+          top: 0;
+        }
+      }
+      .sec {
+        border-top: 1px solid #ccc;
+      }
+    }
+    .priceChart {
+      padding: 0 20rpx;
+      .text {
+        margin: 20rpx 0;
+        position: relative;
+        &:before {
+          content: '';
+          height: 40rpx;
+          width: 10rpx;
+          background-color: red;
+          display: block;
+          position: absolute;
+          left: 0rpx;
+          top: 0rpx;
+        }
+        text {
+          margin-left: 20rpx;
+        }
+      }
+      .chart {
+        height: 500rpx;
+        background-color: #fff;
+      }
+    }
+  }
 </style>

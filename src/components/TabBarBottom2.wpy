@@ -28,6 +28,9 @@
         wepy.reLaunch({
           url: this.tabBarBottomCacheData[this.userInfoCacheData.role][event].routerLink
         })
+        // wepy.switchTab({
+        //  url: this.tabBarBottomCacheData[this.userInfoCacheData.role][event].routerLink
+        // })
       }
     }
     onLoad() {}

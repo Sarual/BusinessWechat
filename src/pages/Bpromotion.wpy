@@ -1,7 +1,26 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName">
   </TitleBar>
-  <view>推广推广推广</view>
+  <view class="promo-page">
+    <view class="promoCon">
+      <view class="store pub1">
+        AA 酒店三里屯分店
+      </view>
+      <view class="linkIcon pub1">
+        推广链接
+      </view>
+      <view class="linkUrl pub1">
+        http://e.1615.cn/login/login.jsp?token=789wejrk87erwjkhds878
+      </view>
+      <view class="copy pub1">
+        <text></text><text class="copyBtn" @tap="copyUrl">复制</text>
+      </view>
+      <view class="erweiCode pub1">
+        <text>推广海报</text>
+        <text>></text>
+      </view>
+    </view>
+  </view>
   <TabBarBottom2></TabBarBottom2>
 </template>
 
@@ -10,14 +29,6 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom2 from '../components/TabBarBottom2'
-  // import {
-  //   getStore,
-  //   connect
-  // } from 'wepy-redux'
-  // const store = getStore()
-  // @connect({
-  //   userInfoCacheData: state => state.cache.userInfoCacheData
-  // })
   export default class Bpromotion extends wepy.page {
     mixins = [base]
     config = {}
@@ -28,7 +39,11 @@
       TitleBar,
       TabBarBottom2
     }
-    methods = {}
+    methods = {
+      copyUrl() {
+        console.log('copyUrl')
+      }
+    }
     onLoad(options) {
       this.titleText = '推广'
     }
@@ -37,5 +52,43 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
+  .promo-page {
+    width: 100%;
+    .promoCon {
+      margin-top: 20rpx;
+      padding: 20rpx 0;
+      background-color: #fff;
+      .pub1 {
+        padding: 0 30rpx;
+        font-size: 30rpx;
+        display: flex;
+      }
+      .store {
+        height: 200rpx;
+        line-height: 200rpx;
+      }
+      .linkIcon {}
+      .linkUrl {}
+      .copy {
+        display: flex;
+        justify-content: space-between;
+        height: 100rpx;
+        .copyBtn {
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 10rpx;
+          color: #333333;
+          font-size: 30rpx;
+          height: 50rpx;
+          width: 100rpx;
+          line-height: 50rpx;
+          text-align: center;
+        }
+      }
+      .erweiCode {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
 </style>
