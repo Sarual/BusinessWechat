@@ -1,7 +1,65 @@
 <template>
   <TitleBar :titleText.sync="titleText" :switchTabName.sync="switchTabName">
   </TitleBar>
-  <view>共享会员</view>
+  <view class="shareMember">
+    <view class="header">
+      <text>AA连锁酒店上海静安寺店</text>
+      <text>上海市徐汇区梅子弄218街道</text>
+    </view>
+    <view class="noJoinCon">
+      <view class="pubTitle">
+        共享会员
+      </view>
+      <view class="toJoin" @tap="toJoin">
+        <text>立即加入共享会员计划</text>
+        <text>千万用户利润共享</text>
+      </view>
+    </view>
+    <view class="hasJoin" wx:if="{{isHasJoin}}">
+      <view class="proNumCon">
+        <view class="pubTitle">
+          共享会员
+        </view>
+        <view class="top">
+          <view class="percent">
+            <text>今日收益</text>
+            <text>578元</text>
+          </view>
+          <view class="percent">
+            <text>昨日收益</text>
+            <text>678元</text>
+          </view>
+          <view class="percent">
+            <text>我的会员</text>
+            <text>62人</text>
+          </view>
+        </view>
+        <view class="bottom">
+          查看详情
+        </view>
+      </view>
+      <view class="promoManage">
+        <view class="pubTitle">
+          推广员管理
+        </view>
+        <view class="addPromo pubItem">
+          <text>添加推广员</text>
+          <text>></text>
+        </view>
+      </view>
+      <view class="promoList">
+        <view class="PromoItem pubItem">
+          <text>张三三</text><text>18单</text>
+        </view>
+        <view class="PromoItem pubItem">
+          <text>李四四</text><text>11单</text>
+        </view>
+        <view class="PromoItem pubItem">
+          <text>王五五</text><text>10单</text>
+        </view>
+      </view>
+    </view>
+  </view>
   <TabBarBottom2></TabBarBottom2>
 </template>
 
@@ -10,22 +68,22 @@
   import base from '../mixins/base'
   import TitleBar from '../components/TitleBar'
   import TabBarBottom2 from '../components/TabBarBottom2'
-  // import { getStore, connect } from 'wepy-redux'
-  // const store = getStore()
-  // @connect({
-  //   userInfoCacheData: state => state.cache.userInfoCacheData
-  // })
   export default class AshareMember extends wepy.page {
     mixins = [base]
     config = {}
     data = {
-      titleText: ''
+      titleText: '',
+      isHasJoin: false
     }
     components = {
       TitleBar,
       TabBarBottom2
     }
-    methods = {}
+    methods = {
+      toJoin() {
+        this.$goto('AbusineBranch/consentArticle')
+      }
+    }
     onLoad(options) {}
     onShow() {
       this.titleText = '共享会员'
@@ -34,5 +92,96 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-
+  .shareMember {
+    width: 100%;
+    .pubTitle {
+      padding: 0 20rpx;
+      height: 60rpx;
+      line-height: 60rpx;
+      color: #666666;
+      font-size: 32rpx;
+    }
+    .pubItem {
+      height: 80rpx;
+      line-height: 80rpx;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20rpx;
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 200rpx;
+      text-align: center;
+      background-color: #b0e2ff;
+      color: #333333;
+      text {
+        &:nth-of-type(2) {
+          font-size: 30rpx;
+        }
+      }
+    }
+    .noJoinCon {
+      .toJoin {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 200rpx;
+        text-align: center;
+        background-color: #fff;
+        color: #333333;
+        font-size: 32rpx;
+      }
+    }
+    .proNumCon {
+      .top {
+        background-color: #fff;
+        border-top: 1px solid #ccc;
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        .percent {
+          flex: 1;
+          font-size: 30rpx;
+          color: #333333;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          line-height: 1.8;
+          padding: 10rpx 0;
+          &:nth-of-type(1) {
+            border-right: 1px solid #ccc;
+          }
+          &:nth-of-type(2) {
+            border-right: 1px solid #ccc;
+          }
+        }
+      }
+      .bottom {
+        background-color: #fff;
+        height: 80rpx;
+        line-height: 80rpx;
+        font-size: 32rpx;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+      }
+    }
+    .promoManage {
+      .title {
+        height: 60rpx;
+        line-height: 60rpx;
+        color: #666666;
+        font-size: 32rpx;
+      }
+      .addPromo {
+        border-top: 1px solid #ccc;
+      }
+    }
+    .promoList {
+      border-top: 1px solid #ccc;
+      margin-top: 50rpx;
+    }
+  }
 </style>

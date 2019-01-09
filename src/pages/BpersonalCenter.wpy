@@ -49,7 +49,7 @@
     }
     methods = {
       toAccountDetail() {
-        console.log('toAccountDetail')
+        this.$goto('BpromoBranch/accountDetail')
       }
     }
     onLoad(options) {

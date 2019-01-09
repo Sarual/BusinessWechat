@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 22,
+			"current": 26,
 			"list": [
 				{
 					"id": -1,
@@ -167,7 +167,31 @@
 				{
 					"id": -1,
 					"name": "promoPost2222",
-					"pathName": "pages/BpromoBranch/promoPost"
+					"pathName": "pages/BpromoBranch/promoPost",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "promoPost2222",
+					"pathName": "pages/AshareMember",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "consentArticle1111",
+					"pathName": "pages/AbusineBranch/consentArticle",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login"
 				}
 			]
 		}

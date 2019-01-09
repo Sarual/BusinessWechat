@@ -9,6 +9,7 @@
   export default class extends wepy.app {
     config = {
       pages: [
+        'pages/login',
         'pages/ArunState',
         'pages/AroomState',
         'pages/AorderList',
@@ -17,15 +18,14 @@
         'pages/AbusineBranch/lastTurnOver',
         'pages/AbusineBranch/todayRoomRate',
         'pages/AbusineBranch/lastRoomRate',
+        'pages/AbusineBranch/consentArticle',
         'pages/Bhome',
         'pages/Bpromotion',
         'pages/BpersonalCenter',
         'pages/BpromoBranch/accountDetail',
         'pages/BpromoBranch/receiptAccount',
-        'pages/BpromoBranch/promoPost',
-        'pages/test/test',
-        'pages/canvasShare',
-        'pages/login'
+        'pages/BpromoBranch/promoPoster',
+        'pages/canvasShare'
       ],
       window: {
         backgroundTextStyle: 'light',
@@ -65,7 +65,7 @@
         this.globalData.isLogin = false
         wepy.checkSession({
           success: res => {
-            // console.log('checkSession:', res)
+            console.log('checkSession:', res)
             // debugger
             if (!this.globalData.accessToken) {
               that.loginToken()
@@ -96,15 +96,19 @@
       wepy.login({
         success: res => {
           if (res.code) {
+            console.log('code', res)
+            console.log('autoLogin-url', service.autoLogin)
             // 登陆拦截
-            wepy.request({
-              url: service.login,
-              method: 'POST',
+            wx.request({
+              url: service.autoLogin,
+              method: 'Get',
               data: {
                 code: res.code
               },
               success: function(res) {
+                console.log('res', res)
                 // 判断环境，正式环境和测试环境存储用户的key变量不同，加以区分。
+                console.log('service.isFormal', service.isFormal)
                 if (service.isFormal) {
                   wepy.setStorage({
                     key: 'accessToken',

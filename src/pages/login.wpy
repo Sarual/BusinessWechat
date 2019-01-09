@@ -10,15 +10,6 @@
         <view class="section_title">密码</view>
         <input name="password" type="number" bindinput="phoneInput" placeholder="密码：4-20位数字、字母、字符" minlength="4" maxlength="20" focus="true" />
       </view>
-      <!-- 手机验证码（后期加） -->
-      <!-- <view class="section">
-          <view class="section_title">验证码</view>
-          <input class="code" name="code" type="number" placeholder="请输入验证码" />
-          <view class="btn send_code">
-            <text wx:if="{{sendMsgDisabled}}">{{time+'秒后获取'}}</text>
-            <text @tap="sendCode" wx:else="{{sendMsgDisabled}}">发送验证码</text>
-          </view>
-        </view> -->
       <view class="btn_comfire">
         <button class="button type_blue" formType="submit">完成</button>
       </view>
@@ -45,31 +36,10 @@
       titleText: '',
       isBackBtn: true,
       phone: '',
+      password: '',
       sendMsgDisabled: false,
       time: 60
     }
-    // sendVerifyCode() {
-    //   var that = this
-    //   that.$post({
-    //     url: service.uploadWechatUserinfo,
-    //     data: {
-    //       phone: that.phone
-    //     }
-    //   }, {
-    //     success: ({
-    //       statusCode,
-    //       data
-    //     }) => {
-    //       // that.isLoading = false
-    //       if (statusCode === 200) {
-    //         tip.success('验证成功')
-    //         that.$apply()
-    //       } else {
-    //         // 收不到验证码/验证失败/验证码不正确
-    //       }
-    //     }
-    //   })
-    // }
     registerUser(phone, password) {
       let that = this
       const query = {
@@ -77,7 +47,7 @@
         password: password
       }
       that.$post({
-        url: service.uploadWechatUserinfo,
+        url: service.login,
         data: query
       }, {
         success: ({
@@ -125,7 +95,6 @@
       //   }, 1000)
       // },
       formSubmit(e) {
-        console.log('去登陆')
         let that = this
         let phone = e.detail.value.phone
         let password = e.detail.value.password
